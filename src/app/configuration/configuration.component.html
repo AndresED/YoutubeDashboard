@@ -1,3 +1,240 @@
-<p>
-  configuration works!
-</p>
+<div class="contenedor-card">
+    <mat-card>
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary btn-add" data-toggle="modal" data-target="#modalRegistrarIntercambio">Agregar nueva transmisión</button>
+            </div>
+            <div class="col-md-8"></div>
+        </div>
+  
+        <div class="card">
+              <div class="card-header d-flex align-items-center">
+                <h3 class="h4">Gestión de credenciales de transmisión</h3>
+              </div>
+              <div class="card-body">
+                
+        <div class="table-responsive">
+              <table class="table table-bordered">
+                  <thead class="thead-primary">
+                      <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Titulo</th>
+                          <th scope="col">Descripción</th>
+                          <th scope="col">Servidor</th>
+                          <th scope="col">Clave de transmisión</th>
+                          <th scope="col">Formato</th>
+                          <th scope="col">Protocolo</th>
+                          <th scope="col">Opciones</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let user of listBroadcast;index as i">
+                          <td>{{i+1}}</td>
+                          <td>{{user.title}}</td>
+                          <td>{{user.description}}</td>
+                          <td>{{user.servidor}}</td>
+                          <td>{{user.key}}</td>
+                          <td>{{user.formato}}</td>
+                          <td>{{user.media}}</td>
+                          <td>
+                              <button class="btn btn-success" data-toggle="modal" data-target="#modalEditarIntercambio" (click)="setDataLiveStream(i)">Editar</button> &nbsp; &nbsp;
+                              <button class="btn btn-danger" data-toggle="modal" data-target="#modalEliminarIntercambio" (click)="setDataLiveStream(i)">Eliminar</button>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+              </div>
+            </div>
+  
+  
+  
+  
+  
+    </mat-card>
+  </div>
+  
+  
+  <!-- Modal -->
+  <div class="modal fade" id="modalRegistrarIntercambio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog h-100 d-flex flex-column justify-content-center my-0" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Registrar credenciales de transmisión</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-12 control-label" for="selectbasic">Formato de transmisión</label>
+                        <div class="col-md-12">
+                          <select name="ingestionType" [(ngModel)]="ingestionType" class="form-control">
+                            <option value="rtmp">RTMP</option>
+                            <option value="dash">Dash</option>
+                          </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12 control-label" for="firstname">Título</label>
+                        <div class="col-md-12">
+                            <input name="titulo" [(ngModel)]="titulo" type="text" placeholder="Ingresar título" class="form-control input-md" required="">
+  
+                        </div>
+                    </div>
+  
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-12 control-label" for="firstname">Descripción</label>
+                        <div class="col-md-12">
+                            <input name="descripcion" [(ngModel)]="descripcion" type="text" placeholder="Ingresar descripción" class="form-control input-md" required="">
+  
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12 control-label" for="selectbasic">Formato</label>
+                        <div class="col-md-12">
+                          <select name="formato" [(ngModel)]="formato" class="form-control">
+                            <option value="1440p_hfr">1440p_hfr</option>
+                            <option value="1440p">1440p</option>
+                            <option value="1080p_hfr">1080p_hfr</option>
+                            <option value="1080p">1080p</option>
+                            <option value="720p_hfr">720p_hfr</option>
+                            <option value="720p">720p</option>
+                            <option value="480p">480p</option>
+                            <option value="360p">360p</option>
+                            <option value="240p">240p</option>
+                          </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                          <label class="col-md-12 control-label" for="selectbasic">Estado</label>
+                          <div class="col-md-12">
+                            <select name="estado" [(ngModel)]="estado" class="form-control">
+                              <option value="active">Activo</option>
+                              <option value="created">Creado</option>
+                              <option value="error">Error</option>
+                              <option value="inactive">Inactivo</option>
+                              <option value="ready">Listo</option>
+                            </select>
+                          </div>
+                      </div>
+                    <!-- Button (Double) -->
+                    <div class="form-group">
+                        <div class="col-md-12 text-center">
+                            <button id="button1id" name="button1id" class="btn btn-success" (click)="register()" data-dismiss="modal" aria-label="Close">Registrar</button> &nbsp; &nbsp;
+                            <button id="button2id" name="button2id" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+  
+            </div>
+        </div>
+    </div>
+  </div>
+  
+  
+  <div class="modal fade" id="modalEditarIntercambio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog h-100 d-flex flex-column justify-content-center my-0" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar Intercambio</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-12 control-label" for="selectbasic">Formato de transmisión</label>
+                        <div class="col-md-12">
+                          <select name="ingestionType" [(ngModel)]="ingestionType" class="form-control">
+                            <option value="rtmp">RTMP</option>
+                            <option value="dash">Dash</option>
+                          </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12 control-label" for="firstname">Título</label>
+                        <div class="col-md-12">
+                            <input name="titulo" [(ngModel)]="titulo" type="text" placeholder="Ingresar título" class="form-control input-md" required="">
+  
+                        </div>
+                    </div>
+  
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-12 control-label" for="firstname">Descripción</label>
+                        <div class="col-md-12">
+                            <input name="descripcion" [(ngModel)]="descripcion" type="text" placeholder="Ingresar descripción" class="form-control input-md" required="">
+  
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12 control-label" for="selectbasic">Formato</label>
+                        <div class="col-md-12">
+                          <select name="formato" [(ngModel)]="formato" class="form-control">
+                            <option value="1440p_hfr">1440p_hfr</option>
+                            <option value="1440p">1440p</option>
+                            <option value="1080p_hfr">1080p_hfr</option>
+                            <option value="1080p">1080p</option>
+                            <option value="720p_hfr">720p_hfr</option>
+                            <option value="720p">720p</option>
+                            <option value="480p">480p</option>
+                            <option value="360p">360p</option>
+                            <option value="240p">240p</option>
+                          </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                          <label class="col-md-12 control-label" for="selectbasic">Estado</label>
+                          <div class="col-md-12">
+                            <select name="estado" [(ngModel)]="estado" class="form-control">
+                              <option value="active">Activo</option>
+                              <option value="created">Creado</option>
+                              <option value="error">Error</option>
+                              <option value="inactive">Inactivo</option>
+                              <option value="ready">Listo</option>
+                            </select>
+                          </div>
+                      </div>
+                    <!-- Button (Double) -->
+                    <div class="form-group">
+                        <div class="col-md-12 text-center">
+                            <button id="button1id" name="button1id" class="btn btn-success" (click)="updated()" data-dismiss="modal" aria-label="Close">Registrar</button> &nbsp; &nbsp;
+                            <button id="button2id" name="button2id" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+  
+            </div>
+        </div>
+    </div>
+  </div>
+  
+  <div class="modal fade" id="modalEliminarIntercambio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog h-100 d-flex flex-column justify-content-center my-0" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-center" id="exampleModalLabel">Eliminar transmisión</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body">
+                ¿Estas seguro de eliminar la transmisión seleccionada?
+                <br>
+                <div class="form-group">
+                    <div class="col-md-12 text-center">
+                        <button id="button1id" name="button1id" class="btn btn-danger" (click)="deleted()" data-dismiss="modal" aria-label="Close">Eliminar</button> &nbsp; &nbsp;
+                        <button id="button2id" name="button2id" class="btn btn-success" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
