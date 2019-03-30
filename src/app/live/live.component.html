@@ -1,0 +1,15 @@
+<div class="contenedor-card">
+  <mat-card>
+    <div class="card">
+      <div class="card-header d-flex align-items-center">
+        <h3 class="h4">Livestream</h3>
+      </div>
+      <div class="card-body">
+          <div class="embed-responsive embed-responsive-16by9" *ngIf="urlVideo!=null">
+            <iframe class="embed-responsive-item" [src]="urlVideo" allowfullscreen></iframe>
+          </div>
+      </div>
+    </div>
+  </mat-card>
+</div>
+

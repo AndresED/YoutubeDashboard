@@ -1,0 +1,31 @@
+/* Structure */
+
+table {
+    width: 100%;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+.thead-primary {
+    background: #3d405c;
+    color: white !important;
+    border: 0px
+}
+
+.table thead th,
+.table th {
+    color: white;
+    font-family: 'Circular Std Medium';
+}
+
+.btn-add,
+.btn-add:hover {
+    background: #3d405c;
+    color: white;
+    border: 0px;
+    outline: none;
+    margin-bottom: 1em;
+}

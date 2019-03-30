@@ -1,0 +1,75 @@
+<div class="page">
+  <!-- Main Navbar-->
+  <header class="header">
+      <nav class="navbar">
+          <div class="container-fluid">
+              <div class="navbar-holder d-flex align-items-center justify-content-between">
+                  <!-- Navbar Header-->
+                  <div class="navbar-header">
+                      <!-- Navbar Brand -->
+                      <a href="index.html" class="navbar-brand d-none d-sm-inline-block">
+                          <div class="brand-text d-none d-lg-inline-block"><strong>CREEX</strong></div>
+                          <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>CREEX</strong></div>
+                      </a>
+                      <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
+                  </div>
+              </div>
+          </div>
+      </nav>
+  </header>
+  <div class="page-content d-flex align-items-stretch">
+      <!-- Side Navbar -->
+      <nav class="side-navbar">
+          <!-- Sidebar Header-->
+          <div class="sidebar-header d-flex align-items-center">
+              <div class="avatar"><img src="https://es.gravatar.com/userimage/129402655/f7ee8156232f467a384585871079730a.jpeg" alt="avatar" class="img-fluid rounded-circle"></div>
+              <div class="title">
+                  <h1 class="h4">Andrés Esquivel</h1>
+                  <p>Administrador</p>
+              </div>
+          </div>
+          <!-- Sidebar Navidation Menus-->
+          <div>
+              <ul class="list-unstyled">
+                  <li class="nav-item">
+                      <a class="nav-link" routerLinkActive="active" routerLink="/transmisition"><i class="icon-grid"></i>Gestion de transmisiones</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" routerLinkActive="active" routerLink="/configuration"><i class="icon-grid"></i>Configuraciones</a>
+                  </li>
+
+              </ul>
+          </div>
+         
+      </nav>
+      <div class="content-inner">
+          <!-- Page Header-->
+          <header class="page-header">
+              <div class="container-fluid">
+                  <h2 class="no-margin-bottom">Dashboard</h2>
+              </div>
+          </header>
+          <!-- Dashboard Counts Section-->
+
+          <section class="projects no-padding-top">
+              <div class="container-fluid">
+                  <router-outlet></router-outlet>
+
+              </div>
+          </section>
+          <!-- Page Footer-->
+          <footer class="main-footer">
+              <div class="container-fluid">
+                  <div class="row">
+                      <div class="col-sm-6">
+                          <p>CREEX &copy; {{year}}</p>
+                      </div>
+                      <div class="col-sm-6 text-right">
+                          <p>Development <a href="https://andresed.me" target="_blank" class="external">Andrés Esquivel</a></p>
+                      </div>
+                  </div>
+              </div>
+          </footer>
+      </div>
+  </div>
+</div>

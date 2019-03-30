@@ -1,0 +1,44 @@
+.menu-tools {
+    height: 10vh;
+    background: rgb(0, 121, 107);
+    color: white;
+    position: fixed;
+    z-index: 1000;
+}
+
+.example-container {
+    width: auto;
+    min-height: 100vh;
+}
+
+.content-list {
+    width: 280px;
+}
+
+.content-routes,
+.content-list {
+    margin-top: 10vh;
+}
+
+a {
+    color: #455A64;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.activate {
+    border-left: 6px solid #00796B;
+    background: rgba(0, 121, 107, 0.2)
+}
+
+.mat-nav-list {
+    border-left: 6px solid #00796B;
+    background: rgba(0, 121, 107, 0.2)
+}
+
+.menu-item:hover {
+    border-left: 6px solid #00796B;
+    background: rgba(0, 121, 107, 0.2)
+}
